@@ -10,10 +10,7 @@ class JType:
 
 class JArray(JType):
     def __init__(self, type):
-        if type.cpp in primitives:
-            name = type.cpp + 'Array'
-        else:
-            name = 'jobjectArray'
+        name = type.cpp + 'Array' if type.cpp in primitives else 'jobjectArray'
         super().__init__(name, '[' + type.jni)
 
 
